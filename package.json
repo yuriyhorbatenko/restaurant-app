@@ -10,15 +10,15 @@
     "build": "cd client/ && npm install && npm run build"
   },
   "cacheDirectories": [
-    "node_modules",
-    "react-ui/node_modules"
+    "server/node_modules",
+    "client/node_modules"
   ],
   "dependencies": {
     "express": "^4.16.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mars/heroku-cra-node.git"
+    "url": ""
   },
   "keywords": [
     "node",
