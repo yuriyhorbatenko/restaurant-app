@@ -1,5 +1,8 @@
 import User from "../models/user";
 import jwt from "jsonwebtoken"
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.EMAIL_KEY);
+
 import { response } from "express";
 
 export const register = async(req, res) => {
@@ -59,3 +62,19 @@ export const login = async (req, res) => {
     res.status(400).send("Sign-in failed");
   }
 }
+
+
+
+export const forgotPassword = (req, res) => {
+  const {email} = req.body;
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+        return res.status(400).json({
+            error: 'User with that email does not exist'
+        });
+    }
+
+  });
+}
+
+
