@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { DatePicker, Select } from "antd";
+import { Select } from "antd";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { RestOutlined } from "@ant-design/icons";
 import { createRestaurant } from "../actions/restaurant";
 import RestaurantCreateForm from "./forms/RestaurantCreateForm";
 
@@ -11,6 +13,7 @@ const NewRestaurant = () => {
   // redux
   const { auth } = useSelector((state) => ({ ...state }));
   const { token } = auth;
+  const history = useHistory();
   // state
   const [values, setValues] = useState({
     address: "",
@@ -20,12 +23,11 @@ const NewRestaurant = () => {
     name: ""
   });
  
-  const [location, setLocation] = useState("");
   const { address, borough, cuisine, grades, name } = values;
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
-    // console.log(values);
 
     let restaurantData = new FormData();
     restaurantData.append("address", address);
@@ -39,8 +41,9 @@ const NewRestaurant = () => {
     try {
       let res = await createRestaurant(token, restaurantData);
       console.log("RESTAURANT CREATE RES", res);
-      toast.success("New restaurant is posted");
-        setTimeout(() => {window.location.reload()}, 1000);
+        toast.success("New restaurant is posted");
+        setTimeout(() => {window.location.reload()}, 5000);
+        history.push("/dashboard");
     } catch (err) {
       console.log(err);
       toast.error(err.response.data);
@@ -53,25 +56,26 @@ const NewRestaurant = () => {
 
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
-        <h2>Add Restaurant</h2>
-      </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-10">
-            <br />
-            <RestaurantCreateForm
-              values={values}
-              setValues={setValues}
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              // location={location}
-              // setLocation={setLocation}
-            />
+    <div className="row">
+        <div className="col-md-6 offset-md-3 text-center">
+          <div className="p-3 pointer">
+            <RestOutlined  className="h1" />
+            <h4>Your Restaurants</h4>
+            <p className="lead">Restaurants you have added</p>
           </div>
-          <div className="col-md-2">
-            <pre>{JSON.stringify(values, null, 4)}</pre>
-            {JSON.stringify(location)}
+        </div>
+      
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6 offset-md-3 text-center">
+              <RestaurantCreateForm
+                values={values}
+                setValues={setValues}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}/>
+            </div>
+            <div className="col-md-2">
+            </div>
           </div>
         </div>
       </div>

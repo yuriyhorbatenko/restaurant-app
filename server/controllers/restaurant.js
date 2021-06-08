@@ -7,7 +7,7 @@ export const create = async (req, res) => {
     let restaurant = new Restaurant(fields);
     restaurant.postedBy = req.user._id;
 
-    hotel.save((err, result) => {
+    restaurant.save((err, result) => {
       if (err) {
         console.log("saving hotel err => ", err);
         res.status(400).send("Error saving");

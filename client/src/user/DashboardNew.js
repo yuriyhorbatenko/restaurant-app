@@ -1,5 +1,6 @@
 import DashboardNav from "../components/DashboardNav";
 import ConnectNav from "../components/ConnectNav";
+import NewRestaurant from "../restaurants/NewRestaurant";
 
 const DashboardNew = () => {
   return (
@@ -13,7 +14,7 @@ const DashboardNew = () => {
       </div>
 
       <div className="container">
-        <p>You can add restaurant</p>
+        <NewRestaurant />
       </div>
     </>
   );

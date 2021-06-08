@@ -14,6 +14,7 @@ import Dashboard from "./user/Dashboard";
 import DashboardNew from "./user/DashboardNew";
 
 
+
 function App() {
   return ( 
     <BrowserRouter>
@@ -33,7 +34,7 @@ function App() {
         
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/dashboard/new" component={DashboardNew} />
-        
+
       </Switch>
     </BrowserRouter>
   );

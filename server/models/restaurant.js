@@ -23,6 +23,10 @@ const restaurantSchema = new Schema(
         name: {
         type: String
         },
+        postedBy: {
+            type: ObjectId,
+            ref: "User",
+        },
         restaurant_id: {
         type: ObjectId
         }

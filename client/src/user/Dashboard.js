@@ -29,12 +29,12 @@ const DashboardSeller = () => {
     });
   };
 
-  const connected = () => (
+  const connected = () => (                                                   
     <div className="container-fluid">
 
       <div className="row">
         <div className="col-md-6 offset-md-3 text-center">
-          <div className="p-5 pointer">
+          <div className="p-3 pointer">
             <RestOutlined  className="h1" />
             <h4>Your Restaurants</h4>
             <p className="lead">Restaurants you have added</p>
@@ -89,7 +89,7 @@ const DashboardSeller = () => {
 
       {auth && auth.user ? connected() : notConnected()}
 
-      <pre>{JSON.stringify(auth, null, 4)}</pre>
+      
     </>
   );
 };

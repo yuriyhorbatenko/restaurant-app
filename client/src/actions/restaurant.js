@@ -17,19 +17,19 @@ export const userRestaurants = async (token) =>
     },
 });
 
-export const deleteRestaurant = async (token, restaurant_id) =>
-  await axios.delete(`${process.env.REACT_APP_API}/delete-restaurant/${restaurant_id}`, {
+export const deleteRestaurant = async (token, _id) =>
+  await axios.delete(`${process.env.REACT_APP_API}/delete-restaurant/${_id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
 });
 
-export const read = async (restaurant_id) =>
-  await axios.get(`${process.env.REACT_APP_API}/restaurant/${restaurant_id}`);
+export const read = async (_id) =>
+  await axios.get(`${process.env.REACT_APP_API}/restaurant/${_id}`);
 
-export const updateRestaurant = async (token, data, restaurant_id) =>
+export const updateRestaurant = async (token, data, _id) =>
   await axios.put(
-    `${process.env.REACT_APP_API}/update-restaurant/${restaurant_id}`,
+    `${process.env.REACT_APP_API}/update-restaurant/${_id}`,
     data,
     {
       headers: {
