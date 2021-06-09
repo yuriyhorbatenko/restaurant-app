@@ -21,9 +21,10 @@ const DashboardSeller = () => {
     setRestaurants(data);
   };
 
-  const handleRestaurantDelete = async (restaurant_id) => {
+  const handleRestaurantDelete = async (restaurantId) => {
+    console.log(restaurantId, "handleRestaurantDelete")
     if (!window.confirm("Are you sure?")) return;
-    deleteRestaurant(auth.token, restaurant_id).then((res) => {
+    deleteRestaurant(auth.token, restaurantId).then((res) => {
       toast.success("Restaurant Deleted");
       loadUserRestaurants();
     });
@@ -54,12 +55,11 @@ const DashboardSeller = () => {
 
           <div className="row">
             {restaurants.map((r) => (
-            <SmallCard
-            key={r._id}
-            r={r}
-            showViewMoreButton={false}
-            owner={true}
-            handleRestaurantDelete={handleRestaurantDelete}/>
+              <SmallCard
+              key={r._id}
+              r={r}
+              owner={true}
+              handleRestaurantDelete={handleRestaurantDelete}/>
             ))}
           </div>
         </div>

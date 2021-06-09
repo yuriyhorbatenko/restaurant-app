@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Select } from "antd";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { RestOutlined } from "@ant-design/icons";
@@ -54,7 +53,7 @@ const NewRestaurant = () => {
 
   return (
     <>
-    <div className="row">
+      <div className="row">
         <div className="col-md-6 offset-md-3 text-center">
           <div className="p-3 pointer">
             <RestOutlined  className="h1" />
@@ -62,17 +61,15 @@ const NewRestaurant = () => {
             <p className="lead">Restaurants you have added</p>
           </div>
         </div>
-      
+        
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
-              <RestaurantCreateForm
+                <RestaurantCreateForm
                 values={values}
                 setValues={setValues}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}/>
-            </div>
-            <div className="col-md-2">
             </div>
           </div>
         </div>

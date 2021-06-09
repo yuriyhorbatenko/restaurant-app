@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import { Select } from "antd";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { RestOutlined } from "@ant-design/icons";
 import { read, updateRestaurant } from "../actions/restaurant";
 import RestaurantEditForm from "./forms/RestaurantEditForm";
-
-const { Option } = Select;
 
 const EditRestaurant = ({match}) => {
   // redux
@@ -44,7 +41,6 @@ const EditRestaurant = ({match}) => {
     restaurantData.append("grades", grades);
     restaurantData.append("name", name);
 
-    console.log([...restaurantData]);
 
     try {
       let res = await updateRestaurant(token, restaurantData, match.params.restaurantId);
@@ -64,7 +60,7 @@ const EditRestaurant = ({match}) => {
 
   return (
     <>
-    <div className="row">
+      <div className="row">
         <div className="col-md-6 offset-md-3 text-center">
           <div className="p-3 pointer">
             <RestOutlined  className="h1" />
@@ -72,18 +68,15 @@ const EditRestaurant = ({match}) => {
             <p className="lead">Restaurants you have added</p>
           </div>
         </div>
-      
+        
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
-              <RestaurantEditForm
+                <RestaurantEditForm
                 values={values}
                 setValues={setValues}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}/>
-            </div>
-            <div className="col-md-2">
-            <pre>{JSON.stringify(values, null, 4)}</pre>
             </div>
           </div>
         </div>

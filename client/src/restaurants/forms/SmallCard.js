@@ -1,14 +1,10 @@
-// import { diffDays } from "../../actions/hotel";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
-const SmallCard = ({
-  r,
-  handleRestaurantsDelete = (f) => f,
-  owner = false,
-  showViewMoreButton = true,
+const SmallCard = ({r, handleRestaurantDelete = (f) =>
+  f, 
+  owner = false
 }) => {
-  const history = useHistory();
   return (
     <>
       <div className="card mb-3">
@@ -23,13 +19,13 @@ const SmallCard = ({
               <p className="card-text">{r.grades} Stars</p>
               
 
-                {showViewMoreButton && (
+                {!owner && (
                   <p className="card-text">{r.postedBy.name}</p>
                 )}
                 {owner && (
                   <>
                     <Link to={`/restaurant/edit/${r._id}`}><EditOutlined className="text-warning" /></Link>
-                    <DeleteOutlined onClick={() => handleRestaurantsDelete(r._id)} className="text-danger" />
+                    <DeleteOutlined onClick={() => handleRestaurantDelete(r._id)} className="text-danger" />
                   </>
                 )}
               </div>
