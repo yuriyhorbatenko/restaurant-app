@@ -29,53 +29,6 @@ const DashboardSeller = () => {
     });
   };
 
-  const connected = () => (                                                   
-    <div className="container-fluid">
-
-      <div className="row">
-        <div className="col-md-6 offset-md-3 text-center">
-          <div className="p-3 pointer">
-            <RestOutlined  className="h1" />
-            <h4>Your Restaurants</h4>
-            <p className="lead">Restaurants you have added</p>
-            <Link to="/dashboard/new" className="btn btn-primary">+ Add New</Link>
-          </div>
-        </div>
-      </div>
-        
-      <div className="row">
-        {restaurants.map((h) => (
-          <SmallCard
-            key={h._id}
-            h={h}
-            showViewMoreButton={false}
-            owner={true}
-            handleRestaurantDelete={handleRestaurantDelete}
-            />
-        ))}
-      </div>
-
-    </div>
-  );
-
-  const notConnected = () => (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-6 offset-md-3 text-center">
-          <div className="p-5 pointer">
-            <RestOutlined  className="h1" />
-            <h4>Your Restaurants</h4>
-            <p className="lead">
-              Restaurants you have added
-            </p>
-            <Link to="/dashboard/new" className="btn btn-primary">
-              + Add New
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <>
@@ -87,9 +40,32 @@ const DashboardSeller = () => {
         <DashboardNav />
       </div>
 
-      {auth && auth.user ? connected() : notConnected()}
+      <div className="container-fluid">
+        
+        <div className="row">
+          <div className="col-md-6 offset-md-3 text-center">
+            <div className="p-3 pointer">
+              <RestOutlined  className="h1" />
+              <h4>Your Restaurants</h4>
+              <p className="lead">Restaurants you have added</p>
+              <Link to="/dashboard/new" className="btn btn-primary">+ Add New</Link>
+            </div>
+          </div>
 
-      
+          <div className="row">
+            {restaurants.map((r) => (
+            <SmallCard
+            key={r._id}
+            r={r}
+            showViewMoreButton={false}
+            owner={true}
+            handleRestaurantDelete={handleRestaurantDelete}/>
+            ))}
+          </div>
+        </div>
+        
+        {/* <pre>{JSON.stringify(restaurants, null, 4)}</pre> */}
+      </div>
     </>
   );
 };

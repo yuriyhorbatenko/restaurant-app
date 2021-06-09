@@ -26,9 +26,6 @@ const restaurantSchema = new Schema(
         postedBy: {
             type: ObjectId,
             ref: "User",
-        },
-        restaurant_id: {
-        type: ObjectId
         }
     },
     { timestamps: true }

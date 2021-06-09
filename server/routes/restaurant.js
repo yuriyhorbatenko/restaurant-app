@@ -8,11 +8,11 @@ import { requireSignin, restaurantUser } from "../middlewares";
 // controllers
 import {create, restaurants, userRestaurants, remove, read, update} from "../controllers/restaurant";
 
-router.post("/create-restaurant", requireSignin, formidable(), create);
 router.get("/restaurants", restaurants);
 router.get("/user-restaurants", requireSignin, userRestaurants);
-router.delete("/delete-restaurant/:restaurant_id", requireSignin, restaurantUser, remove);
-router.get("/restaurant/:restaurant_id", read);
-router.put("/update-restaurant/:restaurant_id", requireSignin, restaurantUser, formidable(), update);
+router.get("/restaurant/:restaurantId", read);
+router.post("/create-restaurant", requireSignin, formidable(), create);
+router.put("/update-restaurant/:restaurantId", requireSignin, restaurantUser, formidable(), update);
+router.delete("/delete-restaurant/:restaurantId", requireSignin, restaurantUser, remove);
 
 module.exports = router;

@@ -12,7 +12,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import Dashboard from "./user/Dashboard";
 import DashboardNew from "./user/DashboardNew";
-
+import EditRestaurant from "./restaurants/EditRestaurant";
 
 
 function App() {
@@ -34,6 +34,7 @@ function App() {
         
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/dashboard/new" component={DashboardNew} />
+        <PrivateRoute exact path="/restaurant/edit/:restaurantId" component={EditRestaurant} />
 
       </Switch>
     </BrowserRouter>

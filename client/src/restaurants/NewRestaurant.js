@@ -7,8 +7,6 @@ import { RestOutlined } from "@ant-design/icons";
 import { createRestaurant } from "../actions/restaurant";
 import RestaurantCreateForm from "./forms/RestaurantCreateForm";
 
-const { Option } = Select;
-
 const NewRestaurant = () => {
   // redux
   const { auth } = useSelector((state) => ({ ...state }));

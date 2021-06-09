@@ -1,6 +1,5 @@
-// import AlgoliaPlaces from "algolia-places-react";
-import { DatePicker, Select } from "antd";
-import moment from "moment";
+import { Select } from "antd";
+
 
 const { Option } = Select;
 
@@ -8,107 +7,66 @@ const RestaurantEditForm = ({
   values,
   setValues,
   handleChange,
-  handleImageChange,
   handleSubmit,
 }) => {
-  const { title, content, location, price, bed, from, to } = values;
+  const { name, address, borough, cuisine } = values;
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label className="btn btn-outline-secondary btn-block m-2 text-left">
-          Image
-          <input
-            type="file"
-            name="image"
-            onChange={handleImageChange}
-            accept="image/*"
-            hidden
-          />
-        </label>
 
         <input
           type="text"
-          name="title"
+          name="name"
           onChange={handleChange}
-          placeholder="Title"
+          placeholder="Name"
           className="form-control m-2"
-          value={title}
+          value={name}
         />
-
-        <textarea
-          name="content"
-          onChange={handleChange}
-          placeholder="Content"
-          className="form-control m-2"
-          value={content}
-        />
-
-        {location && location.length && (
-          <AlgoliaPlaces
-            className="form-control m-2"
-            placeholder="Location"
-            defaultValue={location}
-            options={config}
-            onChange={({ suggestion }) =>
-              setValues({ ...values, location: suggestion.value })
-            }
-            style={{ height: "50px" }}
-          />
-        )}
 
         <input
-          type="number"
-          name="price"
+          type="text"
+          name="address"
           onChange={handleChange}
-          placeholder="Price"
+          placeholder="Address"
           className="form-control m-2"
-          value={price}
+          value={address}
+        />
+
+        <input
+          type="text"
+          name="borough"
+          onChange={handleChange}
+          placeholder="Borough"
+          className="form-control m-2"
+          value={borough}
+        />
+
+        <input
+          type="text"
+          name="cuisine"
+          onChange={handleChange}
+          placeholder="Cuisine"
+          className="form-control m-2"
+          value={cuisine}
         />
 
         <Select
-          onChange={(value) => setValues({ ...values, bed: value })}
+          onChange={(value) => setValues({ ...values, grades: value })}
           className="w-100 m-2"
           size="large"
-          placeholder="Number of beds"
-          value={bed}
+          placeholder="Grade"
         >
           <Option key={1}>{1}</Option>
           <Option key={2}>{2}</Option>
           <Option key={3}>{3}</Option>
           <Option key={4}>{4}</Option>
+          <Option key={5}>{5}</Option>
         </Select>
+
+      
       </div>
-
-      {from && (
-        <DatePicker
-          defaultValue={moment(from, "YYYY-MM-DD")}
-          placeholder="From date"
-          className="form-control m-2"
-          onChange={(date, dateString) =>
-            setValues({ ...values, from: dateString })
-          }
-          disabledDate={(current) =>
-            current && current.valueOf() < moment().subtract(1, "days")
-          }
-        />
-      )}
-
-      {to && (
-        <DatePicker
-          defaultValue={moment(to, "YYYY-MM-DD")}
-          placeholder="To date"
-          className="form-control m-2"
-          onChange={(date, dateString) =>
-            setValues({ ...values, to: dateString })
-          }
-          disabledDate={(current) =>
-            current && current.valueOf() < moment().subtract(1, "days")
-          }
-        />
-      )}
-
-      <button className="btn btn-outline-primary m-2">Save</button>
+      <button className="btn btn-outline-primary m-2" >Save</button>
     </form>
   );
 };

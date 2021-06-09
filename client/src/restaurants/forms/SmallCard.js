@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const SmallCard = ({
-  h,
+  r,
   handleRestaurantsDelete = (f) => f,
   owner = false,
   showViewMoreButton = true,
@@ -15,25 +15,21 @@ const SmallCard = ({
         <div className="row no-gutters">
           <div className="col-md-8">
             <div className="card-body">
-          
               <div className="d-flex justify-content-between h4">
+              <p className="card-text">{r.name} Name</p>
+              <p className="card-text">{r.address} Address</p>
+              <p className="card-text">{r.borough} Borough</p>
+              <p className="card-text">{r.cuisine} Cuisine</p>
+              <p className="card-text">{r.grades} Stars</p>
+              
+
                 {showViewMoreButton && (
-                  <button
-                    onClick={() => history.push(`/restaurant/${h._id}`)}
-                    className="btn btn-primary"
-                  >
-                    Show more
-                  </button>
+                  <p className="card-text">{r.postedBy.name}</p>
                 )}
                 {owner && (
                   <>
-                    <Link to={`/hotel/edit/${h._id}`}>
-                      <EditOutlined className="text-warning" />
-                    </Link>
-                    <DeleteOutlined
-                      onClick={() => handleRestaurantsDelete(h._id)}
-                      className="text-danger"
-                    />
+                    <Link to={`/restaurant/edit/${r._id}`}><EditOutlined className="text-warning" /></Link>
+                    <DeleteOutlined onClick={() => handleRestaurantsDelete(r._id)} className="text-danger" />
                   </>
                 )}
               </div>

@@ -9,8 +9,8 @@ export const create = async (req, res) => {
 
     restaurant.save((err, result) => {
       if (err) {
-        console.log("saving hotel err => ", err);
-        res.status(400).send("Error saving");
+        console.log("SAVING RESTAURANT ERROR => ", err);
+        res.status(400).send("ERROR SAVING");
       }
       res.json(result);
     });
@@ -35,38 +35,27 @@ export const userRestaurants = async (req, res) => {
 };
 
 export const remove = async (req, res) => {
-  let removed = await Restaurant.findByIdAndDelete(req.params.restaurant_id).select("-image.data").exec();
+  let removed = await Restaurant.findByIdAndDelete(req.params.restaurantId).select("-image.data").exec();
   res.json(removed);
 };
 
 export const read = async (req, res) => {
-  let hotel = await Restaurant.findById(req.params.restaurant_id).populate("postedBy", "_id name").select("-image.data").exec();
-    res.json(hotel);
+  let restaurant = await Restaurant.findById(req.params.restaurantId).populate("postedBy", "_id name").select("-image.data").exec();
+    res.json(restaurant);
 };
 
 export const update = async (req, res) => {
   try {
     let fields = req.fields;
-    let files = req.files;
-
     let data = { ...fields };
-
-    if (files.image) {
-      let image = {};
-      image.data = fs.readFileSync(files.image.path);
-      image.contentType = files.image.type;
-
-      data.image = image;
-    }
-
-    let updated = await Hotel.findByIdAndUpdate(req.params.hotelId, data, {
+    let updated = await Restaurant.findByIdAndUpdate(req.params.restaurantId, data, {
       new: true,
     }).select("-image.data");
 
     res.json(updated);
   } catch (err) {
     console.log(err);
-    res.status(400).send("Hotel update failed. Try again.");
+    res.status(400).send("Restaurant update failed. Try again.");
   }
 };
 

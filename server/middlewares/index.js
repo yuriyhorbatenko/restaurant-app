@@ -9,7 +9,7 @@ export const requireSignin = expressJwt({
 });
 
 export const restaurantUser = async (req, res, next) => {
-  let restaurant = await Restaurant.findById(req.params.restaurant_id).exec();
+  let restaurant = await Restaurant.findById(req.params.restaurantId).exec();
   let user = restaurant.postedBy._id.toString() === req.user._id.toString();
   if (!user) {
     return res.status(403).send("Unauthorized");
