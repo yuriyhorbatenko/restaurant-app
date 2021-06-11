@@ -3,7 +3,7 @@ import { Select } from "antd";
 
 const { Option } = Select;
 
-const RestaurantCreateForm = ({
+const NewRestaurantForm = ({
   values,
   setValues,
   handleChange,
@@ -71,4 +71,4 @@ const RestaurantCreateForm = ({
   );
 };
 
-export default RestaurantCreateForm;
+export default NewRestaurantForm;

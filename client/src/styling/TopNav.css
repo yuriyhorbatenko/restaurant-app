@@ -1,0 +1,25 @@
+.navbar-main {
+  height: 50px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.774);
+  position: fixed;
+}
+
+.navbar-left-side {
+  float: left;
+  display: flex;
+  font-size: 19px;
+}
+
+.navbar-right-side {
+  float: right;
+  display: flex;
+  font-size: 19px;
+}
+
+.nav-text {
+  color: rgb(255, 255, 255)!important;
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+

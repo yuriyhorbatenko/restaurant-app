@@ -1,7 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ToastContainer, Slide} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "antd/dist/antd.css"
+import "antd/dist/antd.css";
+import "./index.css"
 
 import PrivateRoute from "./components/PrivateRoute";
 import TopNav from "./components/TopNav";

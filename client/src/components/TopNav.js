@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import "../styling/TopNav.css";
 
 const TopNav = () => {
   const dispatch = useDispatch();
@@ -18,38 +18,38 @@ const TopNav = () => {
   };
   
   return (
-
-    <div className="nav bg-light d-flex justify-content-between">
-
-      <Link className="nav-link" to="/">
-        Home
-      </Link>
-
-      {auth !== null && (
-        <Link className="nav-link" to="/dashboard">
-          Dashboard
-        </Link>
-      )}
-
-
-      {auth !== null && (
-        <a className="nav-link" onClick={logout}>
-          Logout
-        </a>
-      )}
-
-      {auth == null && (
-        <>
-          <Link className="nav-link" to="/login">
-            Login
+      <div className="navbar-main">
+        <div className="navbar-left-side">
+          <Link className="nav-link nav-text" to="/">
+            Home
           </Link>
-          <Link className="nav-link" to="/register">
-            Register
-          </Link>
-        </>
-      )}
 
-    </div>
+          {auth !== null && (
+            <Link className="nav-link nav-text" to="/dashboard">
+              Dashboard
+            </Link>
+          )}
+        </div>
+
+        <div className="navbar-right-side">
+          {auth !== null && (
+            <a className="nav-link nav-text" onClick={logout}>
+              Logout
+            </a>
+          )}
+
+          {auth == null && (
+            <>
+              <Link className="nav-link nav-text" to="/login">
+                Login
+              </Link>
+              <Link className="nav-link nav-text" to="/register">
+                Register
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
   );
 };
 

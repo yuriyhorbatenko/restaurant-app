@@ -1,0 +1,60 @@
+.login-page {
+  background-color: white;
+  background-image: url("../img/01.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  width:100%;
+}
+
+.form-box{
+    width:380px;
+    height:450px;
+    background-color:black;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    opacity:0.7;
+    border-radius:2%;
+}
+
+.header-form {
+  margin-bottom:15px;
+}
+
+button {
+  margin-top:40px;
+  margin-bottom:10px;
+}
+
+.message {
+  display:flex;
+  justify-content:space-between;
+}
+
+.message-password {
+  color: white!important;
+}
+
+.input-group-text {
+  padding: 10px!important;
+  width: 33px;
+}
+
+.form-control:focus {
+  border-color: none!important;
+  box-shadow: none!important;
+}
+
+.input-group-prepend {
+  margin-right: 5px!important;
+}
+
+.fa-user-circle{
+  color: white;
+}

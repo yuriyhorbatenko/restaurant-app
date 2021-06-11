@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { RestOutlined } from "@ant-design/icons";
 import { read, updateRestaurant } from "../actions/restaurant";
-import RestaurantEditForm from "./forms/RestaurantEditForm";
+import EditRestaurantForm from "./forms/EditRestaurantForm";
 
 const EditRestaurant = ({match}) => {
   // redux
@@ -72,7 +72,7 @@ const EditRestaurant = ({match}) => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-6 offset-md-3 text-center">
-                <RestaurantEditForm
+                <EditRestaurantForm
                 values={values}
                 setValues={setValues}
                 handleChange={handleChange}
