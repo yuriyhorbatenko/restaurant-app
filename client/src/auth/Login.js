@@ -33,7 +33,7 @@ const Login = ({history}) => {
 
     } catch (err) {
       console.log(err)
-      if(err.res.status === 400) toast.error(err.res.data)
+      if(err.response.status === 400) toast.error(err.response.data)
     }
   }
 
@@ -62,7 +62,7 @@ const Login = ({history}) => {
                 <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               </div>
 
-                <button disabled={!email || !password} className="btn btn-secondary btn-block">LOGIN</button>
+                <button className="btn btn-secondary btn-block">LOGIN</button>
 
               <div className="message">
                   <div><a href="#"  className="message-password">Forgot your password?</a></div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import RegisterForm from "../components/RegisterForm";
+import { Link } from "react-router-dom";
+// import RegisterForm from "../components/RegisterForm";
 import { register } from "../actions/auth";
 import { toast } from 'react-toastify';
 
@@ -29,27 +30,56 @@ const Register = ({history}) => {
 
   return (
     <>
-      <div className="container-fluid bg-secondary p-5 text-center">
-        <h1>Register</h1>
-      </div>
-
-      
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 offset-md-3">
-            <RegisterForm
-              handleSubmit={handleSubmit}
-
-              name={name}
-              setName={setName}
-
-              email={email}
-              setEmail={setEmail}
-              
-              password={password}
-              setPassword={setPassword}
-              />
+      <div className="login-page">
+        <div className="form-box register-form">
+          <div className="header-form">
+            <h4 className="text-primary text-center"><i className="fa fa-user-plus" style={{fontSize:"110px"}}></i></h4>
+              <div className="image"></div>
           </div>
+
+          <div className="body-form">
+            <form onSubmit={handleSubmit}>
+
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><i className="fa fa-arrow-circle-right"></i></span>
+                </div>
+                <input type="text" className="form-control" placeholder="first name" value={name} onChange={(e) => setName(e.target.value)}/>
+              </div>
+
+
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><i className="fa fa-arrow-circle-right"></i></span>
+                </div>
+                <input type="text" className="form-control" placeholder="last name" value={name} onChange={(e) => setName(e.target.value)}/>
+              </div>
+
+
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><i className="fa fa-user"></i></span>
+                </div>
+                <input type="email" className="form-control" placeholder="email address" value={email} onChange={(e) => setEmail(e.target.value)}/>
+              </div>
+
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><i className="fa fa-lock"></i></span>
+                </div>
+                <input type="password" className="form-control" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              </div>
+
+                <button className="btn btn-secondary btn-block">REGISTER</button>
+
+              <div className="message">
+                  <div>
+                    <Link to={"/login"}className="message-password">Already have account?</Link>
+                  </div>
+              </div>
+            </form>
+          </div>
+          
         </div>
       </div>
     </>

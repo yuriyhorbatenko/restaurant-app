@@ -13,7 +13,7 @@ const ConnectNav = () => {
 
       <Card>
         <Meta avatar={<Avatar>{user.name[0]}</Avatar>} 
-            title={user.name} 
+            title={user.firstName + " " + user.lastName}  
             description={`Joined ${moment(user.createdAt).fromNow()}`}
         />
       </Card>

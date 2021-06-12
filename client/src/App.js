@@ -23,8 +23,9 @@ function App() {
       <ToastContainer
       position="top-center"
       transition={Slide}
+      limit={2}
       closeOnClick
-      pauseOnFocusLoss
+      pauseOnFocusLoss={false}
       draggable
       pauseOnHover={false}
       />

@@ -23,6 +23,10 @@
     border-radius:2%;
 }
 
+.register-form {
+  height:550px;
+}
+
 .header-form {
   margin-bottom:15px;
 }
@@ -55,6 +59,6 @@ button {
   margin-right: 5px!important;
 }
 
-.fa-user-circle{
+.fa-user-circle, .fa-user-plus{
   color: white;
 }
