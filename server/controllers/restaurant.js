@@ -23,24 +23,24 @@ export const create = async (req, res) => {
 };
 
 export const restaurants = async (req, res) => {
-  let all = await Restaurant.find({}).limit(24).populate("postedBy", "_id name").exec();
+  let all = await Restaurant.find({}).limit(24).populate("postedBy", "_id firstName lastName").exec();
   // console.log(all);
   res.json(all);
 };
 
 export const userRestaurants = async (req, res) => {
-  let all = await Restaurant.find({ postedBy: req.user._id }).populate("postedBy", "_id name").exec();
+  let all = await Restaurant.find({ postedBy: req.user._id }).populate("postedBy", "_id firstName lastName").exec();
   // console.log(all);
   res.send(all);
 };
 
 export const remove = async (req, res) => {
-  let removed = await Restaurant.findByIdAndDelete(req.params.restaurantId).select("-image.data").exec();
+  let removed = await Restaurant.findByIdAndDelete(req.params.restaurantId).exec();
   res.json(removed);
 };
 
 export const read = async (req, res) => {
-  let restaurant = await Restaurant.findById(req.params.restaurantId).populate("postedBy", "_id name").select("-image.data").exec();
+  let restaurant = await Restaurant.findById(req.params.restaurantId).populate("postedBy", "_id firstName lastName").exec();
     res.json(restaurant);
 };
 
@@ -50,7 +50,7 @@ export const update = async (req, res) => {
     let data = { ...fields };
     let updated = await Restaurant.findByIdAndUpdate(req.params.restaurantId, data, {
       new: true,
-    }).select("-image.data");
+    });
 
     res.json(updated);
   } catch (err) {

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import RegisterForm from "../components/RegisterForm";
 import { register } from "../actions/auth";
 import { toast } from 'react-toastify';
 
 const Register = ({history}) => {
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,8 +13,9 @@ const Register = ({history}) => {
     e.preventDefault();
 
     try { 
-      const res = await register({ 
-      name,
+      const res = await register({
+      firstName,
+      lastName,
       email,
       password
     });
@@ -44,7 +45,7 @@ const Register = ({history}) => {
                 <div className="input-group-prepend">
                   <span className="input-group-text"><i className="fa fa-arrow-circle-right"></i></span>
                 </div>
-                <input type="text" className="form-control" placeholder="first name" value={name} onChange={(e) => setName(e.target.value)}/>
+                <input type="text" className="form-control" placeholder="first name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
               </div>
 
 
@@ -52,7 +53,7 @@ const Register = ({history}) => {
                 <div className="input-group-prepend">
                   <span className="input-group-text"><i className="fa fa-arrow-circle-right"></i></span>
                 </div>
-                <input type="text" className="form-control" placeholder="last name" value={name} onChange={(e) => setName(e.target.value)}/>
+                <input type="text" className="form-control" placeholder="last name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
               </div>
 
 

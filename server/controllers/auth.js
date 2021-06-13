@@ -7,10 +7,11 @@ import { response } from "express";
 
 export const register = async(req, res) => {
     console.log(req.body);
-    const {name, email, password} = req.body;
+    const {firstName, lastName, email, password} = req.body;
 
   // validation
-  if (!name) return res.status(400).send("Name is required");
+  if (!firstName) return res.status(400).send("First name is required");
+  if (!lastName) return res.status(400).send("Last name is required");
   if (!email) return res.status(400).send("Email is required");
   if (!password || password.length < 6)
     return res
@@ -50,7 +51,8 @@ export const login = async (req, res) => {
       
       res.json({token, user: {
         _id: user._id,
-        name: user.name,
+        firstName: user.firstName,
+        lastName: user.lastName,
         email: user.email,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt

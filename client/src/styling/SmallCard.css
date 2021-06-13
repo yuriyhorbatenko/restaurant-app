@@ -1,7 +1,7 @@
 .reviews-list {
     display:flex;
     align-items:center;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .review-card {
@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: space-around;
     width: 450px;
-    height: 250px;
+    height: 300px;
     background: #2c2b3f;
     border-radius: 10px;
     margin: 10px 0px;
@@ -17,15 +17,21 @@
 
 .review-header {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: #ffffff;
-    font-weight: bold;
+    justify-content: space-between;
+    margin: 0px 30px;
 }
 
 .name-group {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    font-size: 20px;
+}
+
+.name-tag {
+    margin: 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .initials {
@@ -46,22 +52,26 @@
     height: 40px;
 }
 
-.rating .i {
-        color: #f3d779;
+.rating {
+    color: #f3d779;
+    font-size: 20px;
 }
 
 .review-description {
     color: #ffffff;
     font-weight: 400;
-    margin: 0px 45px;
+    margin: 0px 30px;
 }
 
 .review-details {
-    display: flex;
-    justify-content: space-between;
-    margin: 0px 45px;
+    margin: 0px 30px;
     align-items: center;
     color: #8c8aa7;
+}
+
+.details-div {
+    display: flex;
+    justify-content: space-between;
 }
 
 .share-group {
@@ -71,3 +81,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.edit-text {
+    font-size: 25px;
+    margin: 0;
+    padding-bottom: 10px;
+
+}
+
