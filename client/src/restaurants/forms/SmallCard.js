@@ -17,17 +17,13 @@ const SmallCard = ({r, handleRestaurantDelete = (f) =>
             <div className="name-tag">{r.name}</div>
 
             <div className="rating">
-            <Rate disabled defaultValue={r.grades} />
+            <Rate disabled defaultValue={r.rating} />
             </div>
           </div>
 
+          <div className="review-description">{r.street}, {r.city}, {r.state} {r.zip}</div>
           <div className="review-description">{r.cuisine} cuisine</div>
-
-          <div className="review-description">{r.address} {r.borough}</div>
-
-          <div className="review-description">
-            The device has a clean design, and the metal housing feels sturdy in my hands. Soft rounded corners make it a pleasure to look at.
-          </div>
+          <div className="review-description">"{r.comment}"</div>
 
           <div className="review-details">
             {!owner && (

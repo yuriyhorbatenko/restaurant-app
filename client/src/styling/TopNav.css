@@ -1,8 +1,9 @@
 .navbar-main {
   height: 50px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.774);
   position: fixed;
+  background: #2c2b3f;
+  z-index: 1000;
 }
 
 .navbar-left-side {
@@ -21,5 +22,25 @@
   color: rgb(255, 255, 255)!important;
   font-variant: small-caps;
   text-transform: lowercase;
+}
+
+.ant-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  margin-top: 7px;
+  border-radius: 50%;
+  background: #2c2b3f;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.ant-card-meta-title {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-size: 17px;
+  margin: 0px!important;
 }
 

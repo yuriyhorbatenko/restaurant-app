@@ -71,7 +71,7 @@ const Register = ({history}) => {
                 <input type="password" className="form-control" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               </div>
 
-                <button className="btn btn-secondary btn-block">REGISTER</button>
+                <button className="btn btn-secondary btn-block form-button">REGISTER</button>
 
               <div className="message">
                   <div>

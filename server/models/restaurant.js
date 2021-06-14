@@ -5,24 +5,47 @@ const { ObjectId } = mongoose.Schema;
 
 const restaurantSchema = new Schema(
     {
-        address: {
-        type: String,
-        required: "Address is required"
-        },
-        borough: {
-        type: String,
-        required: "Borough is required"
-        },
-        cuisine: {
-        type: String
-        },
-        grades: {
-        type: Array,
-        required: "Price is required",
-        },
         name: {
-        type: String
+        type: String,
+        required: "Name is required"
         },
+
+        cuisine: {
+        type: String,
+        required: "Cuisine is required"
+        },
+
+        street: {
+        type: String,
+        required: "Street is required"
+        },
+
+        city: {
+        type: String,
+        required: "City is required"
+        },
+
+        state: {
+        type: String,
+        required: "State is required"
+        },
+
+        zip: {
+        type: Number,
+        required: "Zip is required"
+        },
+
+        comment: {
+        type: String,
+        maxlength: 1000,
+        required: "Comment is required"
+        },
+        
+        rating: {
+        type: String,
+        required: "Rating is required"
+        },
+        
         postedBy: {
             type: ObjectId,
             ref: "User",

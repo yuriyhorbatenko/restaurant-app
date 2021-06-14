@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { RestOutlined } from "@ant-design/icons";
 import { read, updateRestaurant } from "../actions/restaurant";
+import DashboardNav from "../components/DashboardNav";
+import ConnectNav from "../components/ConnectNav";
 import EditRestaurantForm from "./forms/EditRestaurantForm";
 
 const EditRestaurant = ({match}) => {
@@ -13,14 +14,17 @@ const EditRestaurant = ({match}) => {
   const history = useHistory();
   // state
   const [values, setValues] = useState({
-    address: "",
-    borough: "",
+    name: "",
     cuisine: "",
-    grades: "",
-    name: ""
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    comment: "",
+    rating: ""
   });
  
-  const { address, borough, cuisine, grades, name } = values;
+  const { name, cuisine, street, city, state, zip, comment, rating } = values;
 
   useEffect(() => {
     loadUserRestaurant();
@@ -35,11 +39,14 @@ const EditRestaurant = ({match}) => {
     e.preventDefault();
 
     let restaurantData = new FormData();
-    restaurantData.append("address", address);
-    restaurantData.append("borough", borough);
-    restaurantData.append("cuisine", cuisine);
-    restaurantData.append("grades", grades);
     restaurantData.append("name", name);
+    restaurantData.append("cuisine", cuisine);
+    restaurantData.append("street", street);
+    restaurantData.append("city", city);
+    restaurantData.append("state", state);
+    restaurantData.append("zip", zip);
+    restaurantData.append("comment", comment);
+    restaurantData.append("rating", rating);
 
 
     try {
@@ -60,25 +67,24 @@ const EditRestaurant = ({match}) => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-md-6 offset-md-3 text-center">
-          <div className="p-3 pointer">
-            <RestOutlined  className="h1" />
-            <h4>Your Restaurants</h4>
-            <p className="lead">Restaurants you have added</p>
-          </div>
+     <ConnectNav />
+
+      <div className="col-md-6 offset-md-3 text-center edit-restaurant">
+        <div className="p-3 pointer">
+          <i className="fa fa-cutlery" aria-hidden="true"></i>
+          <h4>Edit Restaurant</h4>
         </div>
-        
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6 offset-md-3 text-center">
-                <EditRestaurantForm
-                values={values}
-                setValues={setValues}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}/>
+      </div>
+
+      <div className="restaurant-container">
+        <div className="restaurant-box">
+            <div className="container">
+              <EditRestaurantForm
+              values={values}
+              setValues={setValues}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}/>
             </div>
-          </div>
         </div>
       </div>
     </>

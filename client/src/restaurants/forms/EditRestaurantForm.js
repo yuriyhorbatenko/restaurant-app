@@ -1,7 +1,6 @@
-import { Select } from "antd";
+import { Input, Rate } from "antd";
 
-
-const { Option } = Select;
+const { TextArea } = Input;
 
 const EditRestaurantForm = ({
   values,
@@ -9,64 +8,106 @@ const EditRestaurantForm = ({
   handleChange,
   handleSubmit,
 }) => {
-  const { name, address, borough, cuisine } = values;
+  const { name, cuisine, street, city, state, zip, comment, rating} = values;
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
 
-        <input
-          type="text"
-          name="name"
-          onChange={handleChange}
-          placeholder="Name"
-          className="form-control m-2"
-          value={name}
-        />
-
-        <input
-          type="text"
-          name="address"
-          onChange={handleChange}
-          placeholder="Address"
-          className="form-control m-2"
-          value={address}
-        />
-
-        <input
-          type="text"
-          name="borough"
-          onChange={handleChange}
-          placeholder="Borough"
-          className="form-control m-2"
-          value={borough}
-        />
-
-        <input
-          type="text"
-          name="cuisine"
-          onChange={handleChange}
-          placeholder="Cuisine"
-          className="form-control m-2"
-          value={cuisine}
-        />
-
-        <Select
-          onChange={(value) => setValues({ ...values, grades: value })}
-          className="w-100 m-2"
-          size="large"
-          placeholder="Grade"
-        >
-          <Option key={1}>{1}</Option>
-          <Option key={2}>{2}</Option>
-          <Option key={3}>{3}</Option>
-          <Option key={4}>{4}</Option>
-          <Option key={5}>{5}</Option>
-        </Select>
-
-      
+      <div className="row">
+        <div className="col-6">
+          <Input 
+            type="text"
+            name="name"
+            onChange={handleChange}
+            placeholder="Name"
+            className="form-control m-2"
+            value={name}
+          />
+        </div>
+        <div className="col-6">
+            <Input 
+            type="text"
+            name="cuisine"
+            onChange={handleChange}
+            placeholder="Cuisine"
+            className="form-control m-2"
+            value={cuisine}
+          />
+        </div>
       </div>
-      <button className="btn btn-outline-primary m-2" >Save</button>
+
+      <div className="row">
+        <div className="col-12">
+        <Input 
+            type="text"
+            name="street"
+            onChange={handleChange}
+            placeholder="Street address"
+            className="form-control m-2"
+            value={street}
+          />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-6">
+          <Input 
+            type="text"
+            name="city"
+            onChange={handleChange}
+            placeholder="City"
+            className="form-control m-2"
+            value={city}
+          />
+        </div>
+        <div className="col-3">
+          <Input 
+            type="text"
+            name="state"
+            onChange={handleChange}
+            placeholder="State"
+            className="form-control m-2"
+            value={state}
+          />
+        </div>
+        <div className="col-3">
+          <Input 
+            type="text"
+            name="zip"
+            onChange={handleChange}
+            placeholder="Zip"
+            className="form-control m-2"
+            value={zip}
+          />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col d-flex justify-content-center">
+          <Rate style={{ fontSize: 30 }} defaultValue={rating} onChange={(value)  => setValues({ ...values, rating: value })}/>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col">
+          <TextArea 
+            type="text"
+            name="comment"
+            rows={3}
+            onChange={handleChange}
+            placeholder="comment"
+            className="form-control m-2"
+            value={comment}
+          />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col d-flex justify-content-center">
+          <button className="btn btn-warning" >Save</button>
+        </div>
+      </div>
+
     </form>
   );
 };

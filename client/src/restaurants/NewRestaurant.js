@@ -2,7 +2,6 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { RestOutlined } from "@ant-design/icons";
 import { createRestaurant } from "../actions/restaurant";
 import NewRestaurantForm from "./forms/NewRestaurantForm";
 
@@ -13,25 +12,31 @@ const NewRestaurant = () => {
   const history = useHistory();
   // state
   const [values, setValues] = useState({
-    address: "",
-    borough: "",
+    name: "",
     cuisine: "",
-    grades: "",
-    name: ""
+    street: "",
+    city: "",
+    state: "",
+    zip: "",
+    comment: "",
+    rating: ""
   });
  
-  const { address, borough, cuisine, grades, name } = values;
+  const { name, cuisine, street, city, state, zip, comment, rating } = values;
 
   const handleSubmit = async (e) => {
     
     e.preventDefault();
 
     let restaurantData = new FormData();
-    restaurantData.append("address", address);
-    restaurantData.append("borough", borough);
-    restaurantData.append("cuisine", cuisine);
-    restaurantData.append("grades", grades);
     restaurantData.append("name", name);
+    restaurantData.append("cuisine", cuisine);
+    restaurantData.append("street", street);
+    restaurantData.append("city", city);
+    restaurantData.append("state", state);
+    restaurantData.append("zip", zip);
+    restaurantData.append("comment", comment);
+    restaurantData.append("rating", rating);
 
     console.log([...restaurantData]);
 
@@ -53,26 +58,12 @@ const NewRestaurant = () => {
 
   return (
     <>
-      <div className="row">
-        <div className="col-md-6 offset-md-3 text-center">
-          <div className="p-3 pointer">
-            <RestOutlined  className="h1" />
-            <h4>Your Restaurants</h4>
-            <p className="lead">Restaurants you have added</p>
-          </div>
-        </div>
-        
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6 offset-md-3 text-center">
-                <NewRestaurantForm
-                values={values}
-                setValues={setValues}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}/>
-            </div>
-          </div>
-        </div>
+      <div className="container">
+          <NewRestaurantForm
+          values={values}
+          setValues={setValues}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}/>
       </div>
     </>
   );

@@ -7,7 +7,7 @@ const DashboardNav = () => {
     <ul className="nav nav-tabs">
       <li className="nav-item">
         <Link
-          className={`nav-link ${active === "/dashboard" && "active"}`}
+          className={`nav-link dashboard-link ${active === "/dashboard" && "active"}`}
           to="/dashboard"
         >
           Your Restaurants
@@ -15,10 +15,10 @@ const DashboardNav = () => {
       </li>
       <li className="nav-item">
         <Link
-          className={`nav-link ${active === "/dashboard/new" && "active"}`}
+          className={`nav-link dashboard-link ${active === "/dashboard/new" && "active"}`}
           to="/dashboard/new"
         >
-          Add Restaurant
+          New Restaurant
         </Link>
       </li>
     </ul>

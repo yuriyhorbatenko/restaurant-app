@@ -12,7 +12,7 @@ const Login = ({history}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Send Login Data ", {email, password})
+    
     try { 
       let res = await login({
       email,
@@ -62,7 +62,7 @@ const Login = ({history}) => {
                 <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               </div>
 
-                <button className="btn btn-secondary btn-block">LOGIN</button>
+                <button className="btn btn-secondary btn-block form-button">LOGIN</button>
 
               <div className="message">
                   <div><a href="#"  className="message-password">Forgot your password?</a></div>

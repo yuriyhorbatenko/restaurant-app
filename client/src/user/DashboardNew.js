@@ -5,16 +5,20 @@ import NewRestaurant from "../restaurants/NewRestaurant";
 const DashboardNew = () => {
   return (
     <>
-      <div className="container-fluid bg-secondary p-5">
-        <ConnectNav />
+      <ConnectNav />
+      <DashboardNav />
+
+      <div className="col-md-6 offset-md-3 text-center">
+        <div className="p-3 pointer">
+          <i className="fa fa-cutlery" aria-hidden="true"></i>
+          <h4>New Restaurant</h4>
+        </div>
       </div>
 
-      <div className="container-fluid p-4">
-        <DashboardNav />
-      </div>
-
-      <div className="container">
-        <NewRestaurant />
+      <div className="restaurant-container">
+        <div className="restaurant-box">
+          <NewRestaurant />
+        </div>
       </div>
     </>
   );

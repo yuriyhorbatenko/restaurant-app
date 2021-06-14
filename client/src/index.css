@@ -1,6 +1,11 @@
 body {
-    /* background:linear-gradient(to left, green, white); */
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+.Toastify__close-button {
+    background-color: transparent!important;
+    margin-top: 13px!important;
+    color: white;
 }

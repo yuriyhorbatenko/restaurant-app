@@ -1,0 +1,83 @@
+.user-card {
+    padding: 100px 50px 50px 50px;
+    background-image: url(../img/5.jfif);
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.fa-cutlery {
+    font-size: 45px;
+    color: #2c2b3f!important;
+}
+
+.dashboard-box {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 3fr));
+    align-items: start;
+    column-gap:2rem;
+    row-gap: 2rem;
+    max-width: 110em;
+}
+
+.btn-warning {
+    background-color: #2c2b3f;
+    color: #ffffff;
+    border-color: #2c2b3f!important;
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+.dashboard-link {
+    color: #2c2b3f!important;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 16px;
+}
+
+.dashboard-link.active{
+    color: #aaa8c2!important;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #2c2b3f!important;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: #2c2b3f #2c2b3f #fff!important;
+}
+
+.restaurant-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+    align-items: center;
+    
+}
+
+.pointer h4 {
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 26px;
+    color: #2c2b3f!important;
+}
+
+.ant-input:focus, .ant-input-focused {
+    border-color: #2c2b3f;
+}
+
+
+.ant-input:hover {
+    border-color: #2c2b3f;
+}
+
+.ant-input {
+    border: 1px solid #2c2b3f;
+}
+
+.edit-restaurant {
+    padding-top: 43px;
+}
+
+

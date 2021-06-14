@@ -9,15 +9,13 @@ const ConnectNav = () => {
   const { user } = auth;
 
   return (
-    <div className="d-flex justify-content-around">
-
+    <div className="d-flex justify-content-around user-card">
       <Card>
-        <Meta avatar={<Avatar>{user.firstName[0]}</Avatar>} 
+        <Meta avatar={<Avatar>{user.firstName[0] + user.lastName[0]}</Avatar>} 
             title={user.firstName + " " + user.lastName}  
             description={`Joined ${moment(user.createdAt).fromNow()}`}
         />
       </Card>
-      
     </div>
   );
 };
