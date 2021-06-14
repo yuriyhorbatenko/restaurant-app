@@ -75,6 +75,9 @@
     font-size: 25px;
     margin: 0;
     padding-bottom: 10px;
+}
 
+.text-warning:hover, .text-danger:hover {
+    color: #ffffff!important;
 }
 

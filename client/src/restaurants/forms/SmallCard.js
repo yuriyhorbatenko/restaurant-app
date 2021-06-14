@@ -52,31 +52,4 @@ const SmallCard = ({r, handleRestaurantDelete = (f) =>
 };
 
 export default SmallCard;
-    // <>
-    //   <div className="card mb-3">
-    //     <div className="row no-gutters">
-    //       <div className="col-md-8">
-    //         <div className="card-body">
-    //           <div className="d-flex justify-content-between h4">
-    //           <p className="card-text">Name: {r.name}</p>
-    //           <p className="card-text">Address: {r.address}</p>
-    //           <p className="card-text">Borough: {r.borough}</p>
-    //           <p className="card-text">Cuisine: {r.cuisine}</p>
-    //           <p className="card-text">Stars: {r.grades}</p>
-              
 
-    //             {!owner && (
-    //               <p className="card-text">Posted:{r.postedBy.firstName + " " + r.postedBy.lastName}</p>
-    //             )}
-    //             {owner && (
-    //               <>
-    //                 <Link to={`/restaurant/edit/${r._id}`}><EditOutlined className="text-warning" /></Link>
-    //                 <DeleteOutlined onClick={() => handleRestaurantDelete(r._id)} className="text-danger" />
-    //               </>
-    //             )}
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </>
