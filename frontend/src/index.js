@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.js";
-import reportWebVitals from "./reportWebVitals";
-import registerServiceWorker from "./registerServiceWorker";
+import reportWebVitals from "./reportWebVitals.js";
+import registerServiceWorker from "./registerServiceWorker.js";
 
 import {createStore} from "redux";
 import {Provider} from "react-redux";

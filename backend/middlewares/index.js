@@ -1,7 +1,7 @@
 import expressJwt from "express-jwt";
 import Restaurant from "../models/restaurant.js";
 
-const requireSignin = expressJwt({secret: "secret", algorithms: ["HS256"]});
+const requireSignin = expressJwt({secret: "shhhhhhared-secret", algorithms: ["base64"]});
 
 const restaurantUser = async (req, res, next) => {
   let restaurant = await Restaurant.findById(req.params.restaurantId).exec();
