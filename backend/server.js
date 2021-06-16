@@ -21,8 +21,8 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json());
 
-app.use('/api/auth', auth);
-app.use('/api/restaurant', restaurant)
+app.use('/api', auth);
+app.use('/api', restaurant)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/build')))

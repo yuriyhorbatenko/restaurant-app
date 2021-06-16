@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <div className="home-container">
         <div className="home-box">
-          {restaurants.r.map((r) => (<SmallCard key={r._id} r={r} />))}
+          {restaurants.map((r) => (<SmallCard key={r._id} r={r} />))}
         </div>
       </div>
     </>
