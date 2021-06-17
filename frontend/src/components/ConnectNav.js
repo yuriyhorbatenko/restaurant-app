@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector } from "React-redux";
 import { Card, Avatar } from "antd";
 import moment from "moment";
 
@@ -18,7 +18,7 @@ const ConnectNav = () => {
           />
         </Card>
       </div>
-      </>
+    </>
   );
 };
 
