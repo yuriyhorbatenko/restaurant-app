@@ -1,4 +1,4 @@
-import { useSelector } from "React-redux";
+import { useSelector } from "react-redux";
 import { Card, Avatar } from "antd";
 import moment from "moment";
 
