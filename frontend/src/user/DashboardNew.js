@@ -1,3 +1,4 @@
+import React from 'react';
 import DashboardNav from "../components/DashboardNav.js";
 import ConnectNav from "../components/ConnectNav.js";
 import NewRestaurant from "../restaurants/NewRestaurant.js";

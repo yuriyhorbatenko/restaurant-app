@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ToastContainer, Slide} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

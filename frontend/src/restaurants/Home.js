@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from "react";
 import { allRestaurants } from "../actions/restaurant.js";
 import SmallCard from "./forms/SmallCard.js";

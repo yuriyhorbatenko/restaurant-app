@@ -1,3 +1,4 @@
+import React from 'react';
 import { Input, Rate } from "antd";
 
 const { TextArea } = Input;
