@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const allRestaurants = async () =>
-  await axios.get(`${process.env.REACT_APP_API}/restaurants`);
+  await axios.get(`/api/restaurants`);
 
 
 export const userRestaurants = async (token) =>
