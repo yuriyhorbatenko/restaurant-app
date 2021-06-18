@@ -1,7 +1,5 @@
 import User from "../models/user.js";
 import jwt from "jsonwebtoken"
-// const sgMail = require('@sendgrid/mail');
-// sgMail.setApiKey(process.env.EMAIL_KEY);
 
 export const register = async(req, res) => {
     console.log(req.body);

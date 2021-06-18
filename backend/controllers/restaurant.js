@@ -23,13 +23,11 @@ export const create = async (req, res) => {
 
 export const restaurants = async (req, res) => {
   let all = await Restaurant.find({}).limit(24).populate("postedBy", "_id firstName lastName").exec();
-  // console.log(all);
   res.json(all);
 };
 
 export const userRestaurants = async (req, res) => {
   let all = await Restaurant.find({ postedBy: req.user._id }).populate("postedBy", "_id firstName lastName").exec();
-  // console.log(all);
   res.send(all);
 };
 
